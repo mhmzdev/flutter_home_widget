@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.mhmzdev.flutter_home_widget"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "25.1.8937393"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -37,8 +37,20 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.8"
+    }
+
+    buildFeatures {
+        compose true
+    }
 }
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    implementation 'androidx.glance:glance-appwidget:1.1.1'
 }
