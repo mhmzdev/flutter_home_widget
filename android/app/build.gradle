@@ -38,6 +38,7 @@ android {
         }
     }
 
+    // https://stackoverflow.com/a/76642065
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.8"
     }
