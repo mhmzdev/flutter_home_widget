@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:home_widget/home_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,27 +30,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int? _counter;
+  int _counter = 0;
 
-  Future<void> _incrementCounter() async {
+  void _incrementCounter() {
     // Get the value from Native
-    final valueFromNative = await HomeWidget.getWidgetData(
-      'counter',
-      defaultValue: 0,
-    );
+    // final valueFromNative = await HomeWidget.getWidgetData(
+    //   'clicks',
+    //   defaultValue: 0,
+    // );
 
     // increment the value
-    final updatedValue = valueFromNative! + 1;
+    // final updatedValue = valueFromNative! + 1;
 
     // Set the value back to Native
-    await HomeWidget.saveWidgetData('counter', updatedValue);
+    // await HomeWidget.saveWidgetData('clicks', updatedValue);
 
     // Update the UI on native side
-    await HomeWidget.updateWidget(name: 'MyCounterWidget');
+    // NOTE: Its the receiver's name here not the widget name
+    // await HomeWidget.updateWidget(name: 'MyCounterRec');
 
     // Update the UI on Flutter side
     setState(() {
-      _counter = updatedValue;
+      _counter++;
     });
   }
 
